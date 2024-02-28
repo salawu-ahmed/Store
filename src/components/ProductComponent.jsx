@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const ProductComponent = () => {
   // it takes the state of our whole application and returns the part of the state we want
@@ -9,22 +10,26 @@ const ProductComponent = () => {
   return (
     <div>
       <div className="cards">
-          {products.map((product) => (
-            <div className="card" key={product.id}>
-              <div className="image">
-                <img src={product.image} alt="/" />
-              </div>
-              <div className="content">
-                <div className="header">
-                  {product.title}
-                  <div className="price">$ {product.price}</div>
-                  <div className="category">{product.category}</div>
+        {products.map((product) => (
+          <div className="card" key={product.id}>
+            <Link to={`/products/${product.id}`}>
+              <>
+                <div className="image">
+                  <img src={product.image} alt="/" />
                 </div>
-              </div>
-            </div>
-          ))}
-        </div>
+                <div className="content">
+                  <div className="header">
+                    {product.title}
+                    <div className="price">$ {product.price}</div>
+                    <div className="category">{product.category}</div>
+                  </div>
+                </div>
+              </>
+            </Link>
+          </div>
+        ))}
       </div>
+    </div>
   );
 };
 
