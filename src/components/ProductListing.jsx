@@ -7,7 +7,6 @@ import { setProducts } from '../redux/actions/productAction'
 const ProductListing = () => {
   // the useSelector allows us to get access to our state
   const products = useSelector((state) => state.allProducts.products)
-  console.log(products);
   const dispatch = useDispatch()
 
   const fetchProducts = async () => {
@@ -15,7 +14,6 @@ const ProductListing = () => {
     .get('https://fakestoreapi.com/products')
     .catch(err => console.log(err))
 
-    console.log(response.data);
     dispatch(setProducts(response.data))
   }
 
