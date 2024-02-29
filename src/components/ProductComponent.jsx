@@ -9,7 +9,7 @@ const ProductComponent = () => {
 
   return (
     <div>
-      <div className="cards">
+      <div className="cards w-full grid grid-cols-4 gap-3">
         {products.map((product) => (
           <div className="card" key={product.id}>
             <Link to={`/products/${product.id}`}>
